@@ -22,9 +22,17 @@
     <main>
       <section class="section-one">
         <div>
-          <span>수련장점수 : </span>
-          <input type="number" id="inputValue" placeholder="값 입력">
-          <div>토벌점수 : <span id="tenScore"></span></div>
+          <div class="component-input">
+            <span>수련장점수 : </span>
+            <input type="number" id="inputValue" placeholder="값 입력">
+          </div>
+          <div class="component-input">
+            <span>보유한 티켓 수 : </span>
+            <input type="number" id="ticketValue" placeholder="10" value="10">
+          </div>
+          <div class="component-input">토벌점수 : <span id="tenScore"></span></div>
+          <div class="component-input">소모된 티켓 수 : <span id="ticketUse"></span></div>
+          <div class="component-input">남은 티켓 수 : <span id="ticketRemain"></span></div>
           <ul id="resultList"></ul>
         </div>
         <pre>
@@ -32,7 +40,7 @@
 
   토벌점수 = 수련장점수 x 10 x 0.88
 
-  포스스톤 획득량 = 토벌점수 / 10
+  포스스톤 획득량 = 토벌점수 * (티켓 수 / 10) / 10
         </pre>
       </section>
       <section class="section-two" style="display:none;">
