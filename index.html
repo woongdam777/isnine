@@ -7,11 +7,18 @@
   <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-  <header>is9 test</header>
+  <header>
+    <div class="header-content">
+      <h1>is9 test</h1>
+      <nav>
+        <ul>
+          <li data-section="section-one">포스스톤</li>
+          <li data-section="section-two">로그분석기</li>
+        </ul>
+      </nav>
+    </div>
+  </header>
   <div class="content-wrap">
-    <aside>
-      <div>포스스톤</div>
-    </aside>
     <main>
       <section class="section-one">
         <div>
@@ -20,8 +27,20 @@
           <div>토벌점수 : <span id="tenScore"></span></div>
           <ul id="resultList"></ul>
         </div>
+        <pre>
+  계산식
+
+  토벌점수 = 수련장점수 x 10 x 0.88
+
+  포스스톤 획득량 = 토벌점수 / 10
+        </pre>
       </section>
-      
+      <section class="section-two" style="display:none;">
+        <div>
+          <h2>로그분석기</h2>
+          <p>로그분석기 내용을 추가예정</p>
+        </div>
+      </section>
     </main>
   </div>
   <footer>

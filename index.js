@@ -1,3 +1,22 @@
+// 섹션 전환
+const navItems = document.querySelectorAll('nav ul li');
+const sections = document.querySelectorAll('main section');
+
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const targetSection = item.getAttribute('data-section');
+    sections.forEach(section => {
+      if (section.classList.contains(targetSection)) {
+        section.style.display = 'block';
+      } else {
+        section.style.display = 'none';
+      }
+    });
+  });
+});
+
+// 계산 기능
+
 const inputValue = document.getElementById('inputValue');
 const resultList = document.getElementById('resultList');
 let tenScore = document.getElementById('tenScore');
