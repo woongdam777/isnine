@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* border: 1px solid black; */
+  font-size: 1.4rem;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+header{
+  padding: 1vw;
+
+  font-size: 3rem;
+
+}
+
+.content-wrap{
+  display: flex;
+}
+
+aside{
+  flex: 1;
+
+  padding-left: 1vw;
+}
+
+main{
+  flex: 7;
+}
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  
+  text-align: end;
+  padding-right: 1vw;
+}
