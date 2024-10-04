@@ -93,11 +93,11 @@ function calculateAndDisplay2(){
   let result = 0;
 
   for(let i of force){
-    now++;
     if(forceValue < i){
       result = i - forceValue;
       break;
     }
+    now++;
   }
 
   nowForce.innerHTML = 'Lv ' + now;
