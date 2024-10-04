@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>isnine</title>
   <link rel="stylesheet" href="./index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="header-content">
-      <h1>is9 test</h1>
+      <h1>War3 IS9</h1>
       <nav>
         <ul>
           <li data-section="section-one">포스스톤</li>
@@ -21,26 +22,35 @@
   <div class="content-wrap">
     <main>
       <section class="section-one">
-        <div>
+        <div class="input-container">
           <div class="component-input">
-            <span>수련장점수 : </span>
+            <label for="inputValue">수련장점수:</label>
             <input type="number" id="inputValue" placeholder="값 입력">
           </div>
           <div class="component-input">
-            <span>보유한 티켓 수 : </span>
+            <label for="ticketValue">보유한 티켓 수:</label>
             <input type="number" id="ticketValue" placeholder="10" value="10">
           </div>
-          <div class="component-input">토벌점수 : <span id="tenScore"></span></div>
-          <div class="component-input">소모된 티켓 수 : <span id="ticketUse"></span></div>
-          <div class="component-input">남은 티켓 수 : <span id="ticketRemain"></span></div>
-          <ul id="resultList"></ul>
+          <div class="component-input">
+            <span>토벌점수:</span>
+            <span id="tenScore"></span>
+          </div>
+          <div class="component-input">
+            <span>소모된 티켓 수:</span>
+            <span id="ticketUse"></span>
+          </div>
+          <div class="component-input">
+            <span>남은 티켓 수:</span>
+            <span id="ticketRemain"></span>
+          </div>
         </div>
-        <pre>
-  계산식
+        <ul id="resultList"></ul>
+        <pre class="formula">
+계산식
 
-  토벌점수 = 수련장점수 x 10 x 0.88
+토벌점수 = 수련장점수 x 10 x 0.88
 
-  포스스톤 획득량 = 토벌점수 * (티켓 수 / 10) / 10
+포스스톤 획득량 = 토벌점수 * (티켓 수 / 10) / 10
         </pre>
       </section>
       <section class="section-two" style="display:none;">
@@ -52,7 +62,7 @@
     </main>
   </div>
   <footer>
-    제작 : 인덱 s
+    제작: 인덱 s
   </footer>
   <script src="./index.js"></script>
 </body>
