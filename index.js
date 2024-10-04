@@ -16,7 +16,7 @@ navItems.forEach(item => {
 });
 
 // 계산 기능
-
+// 포스 스톤
 const inputValue = document.getElementById('inputValue');
 const ticketValue = document.getElementById('ticketValue');
 const resultList = document.getElementById('resultList');
@@ -44,7 +44,7 @@ function calculateAndDisplay() {
     let ticketRemainCount = parseInt(ticketValue.value)%10;
     ticketUse.innerHTML = Math.floor(ticketCount)*10 + '개';
     ticketRemain.innerHTML = ticketRemainCount + '개';
-    tenScore.innerHTML = Math.floor(value)*10;
+    tenScore.innerHTML = Math.floor(value)*10 + '점';
     
     if (isNaN(value) || value < 0) {
         resultList.innerHTML = '<li>수련장 점수를 입력하세요.</li>';
@@ -77,3 +77,29 @@ function displayResults(results) {
     });
 }
 
+// 포스 레벨
+
+const force = [ 1, 100, 250, 625, 1600, 6400, 16000, 38000, 83600, 334400 ];
+const inputForce = document.getElementById('inputForce');
+
+inputForce.addEventListener('input', calculateAndDisplay2);
+
+function calculateAndDisplay2(){
+  const forceValue = inputForce.value;
+  let nowForce = document.getElementById('nowForce');
+  let needForce = document.getElementById('needForce');
+
+  let now = 0;
+  let result = 0;
+
+  for(let i of force){
+    now++;
+    if(forceValue < i){
+      result = i - forceValue;
+      break;
+    }
+  }
+
+  nowForce.innerHTML = 'Lv ' + now;
+  needForce.innerHTML = result + ' 포스';
+}

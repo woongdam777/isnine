@@ -14,7 +14,7 @@
       <nav>
         <ul>
           <li data-section="section-one">포스스톤</li>
-          <li data-section="section-two">로그분석기</li>
+          <li data-section="section-two">포스레벨</li>
         </ul>
       </nav>
     </div>
@@ -24,7 +24,7 @@
       <section class="section-one">
         <div class="input-container">
           <div class="component-input">
-            <label for="inputValue">수련장점수:</label>
+            <label for="inputValue">수련장 점수:</label>
             <input type="number" id="inputValue" placeholder="값 입력">
           </div>
           <div class="component-input">
@@ -32,7 +32,7 @@
             <input type="number" id="ticketValue" placeholder="10" value="10">
           </div>
           <div class="component-input">
-            <span>토벌점수:</span>
+            <span>토벌 점수:</span>
             <span id="tenScore"></span>
           </div>
           <div class="component-input">
@@ -46,23 +46,45 @@
         </div>
         <ul id="resultList"></ul>
         <pre class="formula">
-계산식
+계산식(소수점 버림)
 
-토벌점수 = 수련장점수 x 10 x 0.88
-
-포스스톤 획득량 = 토벌점수 * (티켓 수 / 10) / 10
+토벌점수 = 수련장점수&times;10&times;0.88
+포스스톤 획득량 = 토벌점수&times;(티켓 수&divide;10)&divide;10
         </pre>
+
       </section>
       <section class="section-two" style="display:none;">
-        <div>
-          <h2>로그분석기</h2>
-          <p>로그분석기 내용을 추가예정</p>
+        <div class="input-container">
+          <div class="component-input">
+            <label for="inputForce">현재 포스:</label>
+            <input type="number" id="inputForce" placeholder="값 입력">
+          </div>
+          <div class="component-input">
+            <span>현재 포스 레벨:</span>
+            <span id="nowForce"></span>
+          </div>
+          <div class="component-input">
+            <span>다음 포스 필요량:</span>
+            <span id="needForce"></span>
+          </div>
+          <pre class="formula">
+  기본 1레벨
+  2레벨 : 100        
+  3레벨 : 250     
+  4레벨 : 625            
+  5레벨 : 1600     
+  6레벨 : 6400   
+  7레벨 : 16000
+  8레벨 : 38000
+  9레벨 : 83600
+  10레벨 : 334400
+          </pre>
         </div>
       </section>
     </main>
   </div>
   <footer>
-    제작: 인덱 s
+    제작: 사탕주면따라가요
   </footer>
   <script src="./index.js"></script>
 </body>
