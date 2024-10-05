@@ -20,7 +20,7 @@ ul {
 }
 
 header {
-  background-color: #3498db;
+  background-color: rgb(245,118,176);
   padding: 1.5rem;
   color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -35,7 +35,7 @@ input {
 }
 
 input:focus {
-  border-color: #3498db;
+  border-color: rgb(245,118,176);
   outline: none;
 }
 
@@ -123,7 +123,7 @@ footer {
   width: 100%;
   text-align: right;
   padding: 1rem;
-  background-color: #34495e;
+  background-color: #3498db;
   color: white;
   font-size: 1.4rem;
 }
