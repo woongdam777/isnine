@@ -40,7 +40,7 @@ ticketValue.addEventListener('input', calculateAndDisplay);
 
 function calculateAndDisplay() {
     let ticketCount = parseInt(ticketValue.value)/10;
-    let value = parseInt(inputValue.value)*10*0.88*Math.floor(ticketCount)*0.0973;
+    let value = parseInt(inputValue.value)*10*0.88*Math.floor(ticketCount)*0.1;
     let ticketRemainCount = parseInt(ticketValue.value)%10;
     ticketUse.innerHTML = Math.floor(ticketCount)*10 + '개 / ' + ticketRemainCount + '개';
     tenScore.innerHTML = Math.floor(value)*10 + ' 점';
