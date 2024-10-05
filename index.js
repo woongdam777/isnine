@@ -40,10 +40,9 @@ ticketValue.addEventListener('input', calculateAndDisplay);
 
 function calculateAndDisplay() {
     let ticketCount = parseInt(ticketValue.value)/10;
-    let value = parseInt(inputValue.value)*10/10*0.88*Math.floor(ticketCount);
+    let value = parseInt(inputValue.value)*10*0.88*Math.floor(ticketCount)*0.0973;
     let ticketRemainCount = parseInt(ticketValue.value)%10;
-    ticketUse.innerHTML = Math.floor(ticketCount)*10 + '개';
-    ticketRemain.innerHTML = ticketRemainCount + '개';
+    ticketUse.innerHTML = Math.floor(ticketCount)*10 + '개 / ' + ticketRemainCount + '개';
     tenScore.innerHTML = Math.floor(value)*10 + '점';
     
     if (isNaN(value) || value < 0) {

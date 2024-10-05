@@ -28,7 +28,7 @@
             <input type="number" id="inputValue" placeholder="값 입력">
           </div>
           <div class="component-input">
-            <label for="ticketValue">보유한 티켓 수:</label>
+            <label for="ticketValue">보유한 티켓:</label>
             <input type="number" id="ticketValue" placeholder="10" value="10">
           </div>
           <div class="component-input">
@@ -36,7 +36,7 @@
             <span id="tenScore"></span>
           </div>
           <div class="component-input">
-            <span>소모된 티켓 수:</span>
+            <span>소모된 티켓 / 남은 티켓:</span>
             <span id="ticketUse"></span>
           </div>
           <div class="component-input">
@@ -47,9 +47,10 @@
         <ul id="resultList"></ul>
         <pre class="formula">
 계산식(소수점 버림)
+※주의 : 대략적인 수치이니 참고만 하기!
 
 토벌점수 = 수련장점수&times;10&times;0.88
-포스스톤 획득량 = 토벌점수&times;(티켓 수&divide;10)&divide;10
+포스스톤 획득량 = 수련장점수&times;0.0973
         </pre>
 
       </section>
