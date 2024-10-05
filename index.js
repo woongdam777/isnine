@@ -22,7 +22,7 @@ const ticketValue = document.getElementById('ticketValue');
 const resultList = document.getElementById('resultList');
 let tenScore = document.getElementById('tenScore');
 let ticketUse = document.getElementById('ticketUse');
-let ticketRemain = document.getElementById('ticketRemain');
+let petScore = document.getElementById('petScore');
 
 const denominations = [
     { value: 1500000, name: "신화" },
@@ -43,7 +43,8 @@ function calculateAndDisplay() {
     let value = parseInt(inputValue.value)*10*0.88*Math.floor(ticketCount)*0.0973;
     let ticketRemainCount = parseInt(ticketValue.value)%10;
     ticketUse.innerHTML = Math.floor(ticketCount)*10 + '개 / ' + ticketRemainCount + '개';
-    tenScore.innerHTML = Math.floor(value)*10 + '점';
+    tenScore.innerHTML = Math.floor(value)*10 + ' 점';
+    petScore.innerHTML = Math.floor(Math.floor(value)*10*7.295)+ ' EXP';
     
     if (isNaN(value) || value < 0) {
         resultList.innerHTML = '<li>수련장 점수를 입력하세요.</li>';
