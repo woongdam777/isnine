@@ -44,7 +44,7 @@ function calculateAndDisplay() {
     let ticketRemainCount = parseInt(ticketValue.value)%10;
     ticketUse.innerHTML = Math.floor(ticketCount)*10 + '개 / ' + ticketRemainCount + '개';
     tenScore.innerHTML = Math.floor(value)*10 + ' 점';
-    petScore.innerHTML = Math.floor(Math.floor(value)*10*7.295)+ ' EXP';
+    petScore.innerHTML = Math.floor(Math.ceil(inputValue.value*7.295)*10*0.88*10.4)+ ' EXP';
     
     if (isNaN(value) || value < 0) {
         resultList.innerHTML = '<li>수련장 점수를 입력하세요.</li>';
