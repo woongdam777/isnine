@@ -97,6 +97,53 @@ main {
   margin: 0 auto;
 }
 
+.icon-frame{
+  display: flex;
+}
+
+.icon-frame a{
+  display : inline-block;
+  width: 70px;
+  height: 70px;
+	padding : 10px;
+}
+
+.icon-frame span:nth-child(2){
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.icon-talk{
+  display : inline-block;
+  width : 50px;
+	height : 50px;
+	background-image : url(./asset/icon.png); 
+	background-size : 190.75px 70.5px;
+	background-position : -10px -11px;
+	background-repeat : no-repeat; 
+}
+
+.icon-cafe{
+  display : inline-block;
+  width : 50px;
+	height : 50px;
+	background-image : url(./asset/icon.png); 
+	background-size : 190.75px 70.5px;
+	background-position : -65px -11px;
+	background-repeat : no-repeat; 
+}
+
+.icon-tool{
+  display : inline-block;
+  width : 50px;
+	height : 50px;
+	background-image : url(./asset/icon.png); 
+	background-size : 190.75px 70.5px;
+	background-position : -120px -11px;
+	background-repeat : no-repeat; 
+}
+
 #resultList {
   margin-top: 2rem;
   padding: 1.5rem;
@@ -106,6 +153,7 @@ main {
 
   font-size: 1.6rem;
 }
+
 
 .formula {
   margin-top: 2rem;
