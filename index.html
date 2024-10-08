@@ -13,9 +13,9 @@
       <h1>War3 IS9</h1>
       <nav>
         <ul>
-          <li data-section="section-one">링크모음</li>
-          <li data-section="section-two">포스스톤</li>
-          <li data-section="section-three">포스레벨</li>
+          <li data-section="section-one">링크</li>
+          <li data-section="section-two">포스</li>
+          <li data-section="section-three">정보</li>
         </ul>
       </nav>
     </div>
@@ -81,66 +81,123 @@
         </div>
       </section>
       <section class="section-two" style="display:none;">
-        <div class="input-container">
-          <div class="component-input">
-            <label for="inputValue">수련장 점수:</label>
-            <input type="number" id="inputValue" placeholder="값 입력">
+        <label id="lowerSection" for="forceSectionOne">포스스톤</label>
+        <label id="lowerSection" for="forceSectionTwo">포스레벨</label>
+        <input type="radio" id="forceSectionOne" name="forceSection" checked>
+        <div>
+          <div class="input-container">
+            <div class="component-input">
+              <label for="inputValue">수련장 점수:</label>
+              <input type="number" id="inputValue" placeholder="값 입력">
+            </div>
+            <div class="component-input">
+              <label for="ticketValue">보유한 티켓:</label>
+              <input type="number" id="ticketValue" placeholder="10" value="10">
+            </div>
+            <div class="component-input">
+              <span>토벌 점수:</span>
+              <span id="tenScore"></span>
+            </div>
+            <div class="component-input">
+              <span>소모된 티켓 / 남은 티켓:</span>
+              <span id="ticketUse"></span>
+            </div>
+            <div class="component-input">
+              <span>펫 경험치:</span>
+              <span id="petScore"></span>
+            </div>
           </div>
-          <div class="component-input">
-            <label for="ticketValue">보유한 티켓:</label>
-            <input type="number" id="ticketValue" placeholder="10" value="10">
-          </div>
-          <div class="component-input">
-            <span>토벌 점수:</span>
-            <span id="tenScore"></span>
-          </div>
-          <div class="component-input">
-            <span>소모된 티켓 / 남은 티켓:</span>
-            <span id="ticketUse"></span>
-          </div>
-          <div class="component-input">
-            <span>펫 경험치:</span>
-            <span id="petScore"></span>
-          </div>
-        </div>
-        <ul id="resultList"></ul>
-        <pre class="formula">
-계산식(소수점 버림)
+          <ul id="resultList"></ul>
+          <div class="formula">
+            <pre>
+▣ 최종피해 증가량
+노말[5%] 매직[10%] 레어[18%] 유닉[30%] 레전[45%]
+에픽[65+(중첩*5)%] / 70% 75%
+고대[95+(중첩*7)] / 102% 109% 116% 123%
+신화[140+(중첩*?)]
+1~10 중첩당 10%  / 150% ~ 200%
+11~20 중첩당 7% / 207% ~ 270%
+21~50 중첩당 3% / 273% ~ 360%
+51~ 중첩당 1% / 361% ~
+            </pre>
+            <pre>
+▣ 계산식(소수점 버림)
 ※주의 : 대략적인 수치이니 참고만 하기!
 
 토벌점수 = 수련장 점수&times;10&times;0.88
-1회 포스스톤 획득량 = 수련장 점수&times;0.0973
+1회 포스스톤 획득량 = 수련장 점수&times;0.0973  
 토벌 포스스톤 획득량 = 수련장 점수&times;0.1&times;10&times;0.88
 1회 펫 경험치 = 수련장 점수&times;7.295
 토벌 펫 경험치 = 수련장 점수&times;7.295&times;10&times;0.88&times;10.4
-        </pre>
-
+            </pre>
+          </div>
+        </div>
+        <input type="radio" id="forceSectionTwo" name="forceSection">
+        <div>
+          <div class="input-container">
+            <div class="component-input">
+              <label for="inputForce">현재 포스:</label>
+              <input type="number" id="inputForce" placeholder="값 입력">
+            </div>
+            <div class="component-input">
+              <span>현재 포스 레벨:</span>
+              <span id="nowForce"></span>
+            </div>
+            <div class="component-input">
+              <span>다음 포스 필요량:</span>
+              <span id="needForce"></span>
+            </div>
+            <pre class="formula">
+기본 1레벨
+2레벨 : 100        
+3레벨 : 250     
+4레벨 : 625            
+5레벨 : 1600     
+6레벨 : 6400   
+7레벨 : 16000
+8레벨 : 38000
+9레벨 : 83600
+10레벨 : 334400
+            </pre>
+          </div>
+        </div>       
       </section>
       <section class="section-three" style="display:none;">
-        <div class="input-container">
-          <div class="component-input">
-            <label for="inputForce">현재 포스:</label>
-            <input type="number" id="inputForce" placeholder="값 입력">
-          </div>
-          <div class="component-input">
-            <span>현재 포스 레벨:</span>
-            <span id="nowForce"></span>
-          </div>
-          <div class="component-input">
-            <span>다음 포스 필요량:</span>
-            <span id="needForce"></span>
-          </div>
+        <label id="lowerSection" for="infoSectionOne">각성</label>
+        <label id="lowerSection" for="infoSectionTwo">성장</label>
+        <input type="radio" id="infoSectionOne" name="infoSection" checked>
+        <div>
           <pre class="formula">
-  기본 1레벨
-  2레벨 : 100        
-  3레벨 : 250     
-  4레벨 : 625            
-  5레벨 : 1600     
-  6레벨 : 6400   
-  7레벨 : 16000
-  8레벨 : 38000
-  9레벨 : 83600
-  10레벨 : 334400
+*각성기의 레벨에 비례하여 각성기의 효과가 증가
+1레벨당 쿨타임 10초 감소          
+1레벨당 피해량 10% 증가
+5레벨 마다 피해량 25% 추가 증가
+
+기본 1레벨
+2레벨 : 5,000
+3레벨 : 20,000        
+4레벨 : 100,000        
+5레벨 : 500,000        
+6레벨 : 2,500,000        
+7레벨 : 10,000,000        
+8레벨 : 50,000,000 
+9레벨 : 300,000,000
+10레벨 : 1,000,000,000
+          </pre>
+        </div>
+        <input type="radio" id="infoSectionTwo" name="infoSection">
+        <div>
+          <pre class="formula">
+레벨[1] = 3000
+레벨[2] = 6000    
+레벨[3] = 20000    
+레벨[4] = 50000    
+레벨[5] = 100000    
+레벨[6] = 160000    
+레벨[7] = 240000    
+레벨[8] = 340000    
+레벨[9] = 500000    
+레벨[10] = 1000000
           </pre>
         </div>
       </section>
