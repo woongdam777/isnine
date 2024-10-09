@@ -26,6 +26,12 @@ header {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
+.main-title{
+  color: #fff;
+  text-decoration: none;
+  outline: none
+}
+
 input {
   padding: 0.8rem;
   border: 1px solid #ddd;
