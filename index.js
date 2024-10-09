@@ -103,3 +103,33 @@ function calculateAndDisplay2(){
   nowForce.innerHTML = 'Lv ' + now;
   needForce.innerHTML = result + ' 포스';
 }
+
+// 어빌 재설정
+const locks = document.querySelectorAll('input[name="lock"]');
+const inputSilver = document.getElementById('inputSilver');
+const inputPage = document.getElementById('inputPage');
+const maxReAbillty = document.getElementById('maxReAbillty');
+
+locks.forEach(lock => {
+    lock.addEventListener('change', maxAbilltyCount);
+});
+
+inputSilver.addEventListener('input', maxAbilltyCount);
+inputPage.addEventListener('input', maxAbilltyCount);
+
+function maxAbilltyCount(){
+    let lockValue = document.querySelector('input[name="lock"]:checked').value;
+    let inputSilverValue = parseInt(inputSilver.value) || 0;
+    let inputPageValue = parseInt(inputPage.value) || 0;
+  
+    let bs = 2000 * lockValue;
+    let bp = 10 * lockValue;
+
+    let silverCount = Math.floor(inputSilverValue / bs);
+    let pageCount = Math.floor(inputPageValue / bp);
+
+    let result = Math.min(silverCount, pageCount);
+
+    maxReAbillty.innerHTML = result + ' 번';
+}
+
