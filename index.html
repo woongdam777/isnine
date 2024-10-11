@@ -18,7 +18,9 @@
 <body>
   <header>
     <div class="header-content">
-      <a href="https://is9.netlify.app/" class="main-title"><h1>War3 IS9</h1></a>
+      <a href="https://is9.netlify.app/" class="main-title">
+        <h1 class="gradient-text">War3 IS9</h1>
+      </a>
       <nav>
         <ul>
           <li data-section="section-one">링크</li>
@@ -235,28 +237,30 @@
         </div>
         <input type="radio" id="infoSectionThree" name="infoSection">
         <div>
-          <div class="component-input">
-            <label for="inputForce">현재 은화:</label>
-            <div><input type="number" id="inputSilver" placeholder="값 입력">&nbsp;M</div>
-          </div>
-          <div class="component-input">
-            <label for="inputForce">현재 순백의 주문서:</label>
-            <div><input type="number" id="inputPage" placeholder="값 입력">&nbsp;개</div>
-          </div>
-          <div class="component-input">
-            <span>잠금 슬롯 개수</span>
-            <div class="lockSelect">
-              <input type="radio" name="lock" id="lockZero" value="1" checked><label for="lockZero">0</label>
-              <input type="radio" name="lock" id="lockOne"value="2"><label for="lockOne">1</label>
-              <input type="radio" name="lock" id="lockTwo"  value="4"><label for="lockTwo">2</label>
-              <input type="radio" name="lock" id="lockThree" value="8"><label for="lockThree">3</label>
-              <input type="radio" name="lock" id="lockFour" value="16"><label for="lockFour">4</label>
-              <input type="radio" name="lock" id="lockFive" value="32"><label for="lockFive">5</label>
+          <div class="input-container">
+            <div class="component-input">
+              <label for="inputForce">현재 은화:</label>
+              <div><input type="number" id="inputSilver" placeholder="값 입력">&nbsp;M</div>
             </div>
-          </div>
-          <div class="component-input">
-            <span>재설정가능 최대횟수 :</span>
-            <span id="maxReAbillty"></span>
+            <div class="component-input">
+              <label for="inputForce">현재 순백의 주문서:</label>
+              <div><input type="number" id="inputPage" placeholder="값 입력">&nbsp;개</div>
+            </div>
+            <div class="component-input">
+              <span>잠금 슬롯 개수</span>
+              <div class="lockSelect">
+                <input type="radio" name="lock" id="lockZero" value="1" checked><label for="lockZero">0</label>
+                <input type="radio" name="lock" id="lockOne"value="2"><label for="lockOne">1</label>
+                <input type="radio" name="lock" id="lockTwo"  value="4"><label for="lockTwo">2</label>
+                <input type="radio" name="lock" id="lockThree" value="8"><label for="lockThree">3</label>
+                <input type="radio" name="lock" id="lockFour" value="16"><label for="lockFour">4</label>
+                <input type="radio" name="lock" id="lockFive" value="32"><label for="lockFive">5</label>
+              </div>
+            </div>
+            <div class="component-input">
+              <span>재설정가능 최대횟수 :</span>
+              <span id="maxReAbillty"></span>
+            </div>
           </div>
           <div class="formula">
             <pre>
