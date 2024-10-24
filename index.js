@@ -77,18 +77,17 @@ function displayResults(results) {
     });
 }
 
-// 포스 레벨
+// 포스&각성 레벨
 
 const force = [ 1, 100, 250, 625, 1600, 6400, 16000, 38000, 83600, 334400 ];
 const inputForce = document.getElementById('inputForce');
-
 inputForce.addEventListener('input', calculateAndDisplay2);
 
 function calculateAndDisplay2(){
   const forceValue = inputForce.value;
   let nowForce = document.getElementById('nowForce');
   let needForce = document.getElementById('needForce');
-
+  
   let now = 0;
   let result = 0;
 
@@ -103,6 +102,31 @@ function calculateAndDisplay2(){
   nowForce.innerHTML = 'Lv ' + now;
   needForce.innerHTML = result + ' 포스';
 }
+
+const awaken = [1, 5000, 20000, 100000, 500000, 2500000, 10000000, 50000000, 300000000, 1000000000];
+const inputAwaken = document.getElementById('inputAwaken');
+inputAwaken.addEventListener('input', calculateAndDisplay3);
+
+function calculateAndDisplay3(){
+  const awakenValue = inputAwaken.value;
+  let nowAwaken = document.getElementById('nowAwaken');
+  let needAwaken = document.getElementById('needAwaken');
+
+  let now = 0;
+  let result = 0;
+
+  for(let i of awaken){
+    if(awakenValue < i){
+      result = i - awakenValue;
+      break;
+    }
+    now++;
+  }
+
+  nowAwaken.innerHTML = 'Lv ' + now;
+  needAwaken.innerHTML = result + ' 경험치';
+}
+
 
 // 어빌 재설정
 const locks = document.querySelectorAll('input[name="lock"]');

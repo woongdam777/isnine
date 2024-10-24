@@ -249,13 +249,18 @@ input[type = radio]:checked+div{
 }
 
 #resultList {
-  margin-top: 2rem;
+  margin: 2rem 0;
   padding: 1.5rem;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 
   font-size: 1.4rem;
+}
+
+.section-nav{
+  display: flex;
+  flex-wrap: wrap;
 }
 
 pre {
@@ -267,7 +272,7 @@ pre {
 .formula{
   display: flex;
 
-  margin: 4rem 0;
+  margin: 0 0 4rem;
   padding: 2rem;
   background-color: #ecf0f1;
   border-radius: 8px;

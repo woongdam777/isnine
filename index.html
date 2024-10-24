@@ -186,12 +186,29 @@
         </div>       
       </section>
       <section class="section-three" style="display:none;">
-        <label id="lowerSection" for="infoSectionOne">각성</label>
-        <label id="lowerSection" for="infoSectionTwo">성장</label>
-        <label id="lowerSection" for="infoSectionThree">어빌</label>
-        <input type="radio" id="infoSectionOne" name="infoSection" checked>
+        <div class="section-nav">
+          <label id="lowerSection" for="infoSectionZero">각성</label>
+          <label id="lowerSection" for="infoSectionOne">지옥파티</label>
+          <label id="lowerSection" for="infoSectionTwo">성장</label>
+          <label id="lowerSection" for="infoSectionThree">어빌</label>
+          <label id="lowerSection" for="infoSectionFore">펫스킬</label>
+        </div>
+        <input type="radio" id="infoSectionZero" name="infoSection" checked>
         <div>
-          <pre class="formula">
+          <div class="input-container">
+            <div class="component-input">
+              <label for="inputAwaken">현재 각성 경험치:</label>
+              <input type="number" id="inputAwaken" placeholder="값 입력">
+            </div>
+            <div class="component-input">
+              <span>현재 각성 레벨:</span>
+              <span id="nowAwaken"></span>
+            </div>
+            <div class="component-input">
+              <span>다음 각성 필요량:</span>
+              <span id="needAwaken"></span>
+            </div>
+            <pre class="formula">
 ▣ 각성기
 
 * 각성기의 레벨에 비례하여 각성기의 효과가 증가
@@ -209,6 +226,44 @@
 8레벨 : 50,000,000 
 9레벨 : 300,000,000
 10레벨 : 1,000,000,000
+            </pre>
+          </div>
+        </div>
+        <input type="radio" id="infoSectionOne" name="infoSection">
+        <div>
+          <pre class="formula">
+▣ 지옥파티(최대 5인) - 하루 최대 10회, 출석체크 횟수 초기화
+
+최초 클리어 보상
+1단계 : 알수없는 마스터리 북
+2단계 : 진리의 돌, 황금 사과
+3단계 : 깨달음의 주문서
+4단계 : 50만 각성 경험치, 깨달음의 주문서
+5단계 : 200만 각성 경험치, 펫 스킬 랜덤 상자
+6단계 : 500만 각성 경험치, 펫 스킬 랜덤 상자(A~B등급)
+7단계 : 1000만 각성 경험치, 펫 스킬 랜덤 상자(A등급)
+8단계 : 5000만 각성 경험치, 펫 스킬 랜덤 상자(A등급)
+
+반복 클리어 보상
+1단계 : 각성 경험치 1000
+2단계 : 각성 경험치 2000
+3단계 : 각성 경험치 4000
+4단계 : 각성 경험치 8000, 깨달음의 주문서(확률 등장)
+5단계 : 각성 경험치 12000, 펫 스킬 랜덤 상자(확률 등장), 깨달음의 주문서(확률 등장)
+6단계 : 각성 경험치 25000, 펫 스킬 랜덤 상자(확률 등장), 깨달음의 주문서(확률 등장)
+7단계 : 각성 경험치 60000, A~B펫 스킬 랜덤 상자(확률 등장), 펫 스킬 랜덤 상자(확률 등장), 깨달음의 주문서(확률 등장)
+8단계 : 각성 경험치 120000, A펫 스킬 랜덤 상자(확률 등장), A~B펫 스킬 랜덤 상자(확률 등장), 펫 스킬 랜덤 상자(확률 등장), 깨달음의 주문서(확률 등장)
+
+클리어 시 획득 포인트
+클리어 횟수가 남아있을 경우 30배 지급
+1단계 : 3P
+2단계 : 6P
+3단계 : 9P
+4단계 : 18P
+5단계 : 60P
+6단계 : 150P
+7단계 : 300P
+8단계 : 900P
           </pre>
         </div>
         <input type="radio" id="infoSectionTwo" name="infoSection">
@@ -311,6 +366,40 @@ ex) 슬롯1:방어 관통 +2.0%
     슬롯4:방어 관통 +2.0%
             </pre>
           </div>
+        </div>
+        <input type="radio" id="infoSectionFore" name="infoSection">
+        <div>
+          <pre class="formula">
+▣ 펫 스킬
+지옥파티 클리어시 낮은 확률 획득, 최대 2개까지 장착
+등급 A~C, n = 등급 비례 효과, 등급이 올라갈 수록 효과가 증폭
+
+소울 애로우 (A,B,C)
+0.8초마다 마지막으로 공격한 '단일' 대상에게 n만큼의 추가 피해를 입힙니다.
+
+베리어 (A,B,C)
+10초마다 n초간 영웅의 최대체력 n%만큼 쉴드를 부여합니다.
+
+찬스 어택 (A,B,C)
+펫이 공격 시 n% 확률로 피해를 한번 더 입힙니다.
+
+위협 (A,B)
+5초마다 마지막으로 공격한 대상을 기준으로 5초간 범위내 적들의 방어력이 n만큼 감소합니다.
+중복 적용 시 제일 마지막에 사용된 위협을 기준으로 적용됩니다.
+
+저주 (A,B)
+5초마다 마지막으로 공격한 '단일' 대상에게 n초간 받는 피해량 10% 증가 디버프를 부여합니다.
+중복 적용 시 제일 마지막에 사용된 저주를 기준으로 적용됩니다.
+
+축복-공격 (A,B)
+10초마다 n초간 영웅의 공격력을 n% 증폭시킵니다.
+
+펫 스킬 : 축복-치명타 (A,B)
+10초마다 n초간 영웅의 치명타 확률을 n% 증가시킵니다.
+
+행운의 주사위 (A,B)
+10초마다 n초간 영웅의 주스탯을 n~n%만큼 증가시킵니다.
+          </pre>
         </div>
       </section>
     </main>
