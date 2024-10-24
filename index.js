@@ -84,7 +84,7 @@ const inputForce = document.getElementById('inputForce');
 inputForce.addEventListener('input', calculateAndDisplay2);
 
 function calculateAndDisplay2(){
-  const forceValue = inputForce.value;
+  const forceValue = parseInt(inputForce.value, 10);
   let nowForce = document.getElementById('nowForce');
   let needForce = document.getElementById('needForce');
   
@@ -108,7 +108,7 @@ const inputAwaken = document.getElementById('inputAwaken');
 inputAwaken.addEventListener('input', calculateAndDisplay3);
 
 function calculateAndDisplay3(){
-  const awakenValue = inputAwaken.value;
+  const awakenValue = parseInt(inputAwaken.value, 10);
   let nowAwaken = document.getElementById('nowAwaken');
   let needAwaken = document.getElementById('needAwaken');
 
@@ -123,7 +123,7 @@ function calculateAndDisplay3(){
     now++;
   }
 
-  nowAwaken.innerHTML = 'Lv ' + now;
+  nowAwaken.innerHTML = 'Lv ' + now + ' / ' + (240 - (10 * (now - 1))) + '쿨 / 피해량 ' + ((now - 1) * 10) + ((now >= 5) ? ' + 25% 증가' : '% 증가');
   needAwaken.innerHTML = result + ' 경험치';
 }
 
