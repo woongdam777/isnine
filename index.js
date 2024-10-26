@@ -157,3 +157,117 @@ function maxAbilltyCount(){
     maxReAbillty.innerHTML = result + ' 번';
 }
 
+// 포스스톤 개수확인
+
+const searchBtn = document.getElementById('searchBtn');
+searchBtn.addEventListener('click', searchSheet);
+
+function searchSheet() {
+  let keyword = document.getElementById('inputSearch').value;
+  const url = 'https://api.sheety.co/9754d57dee1ccb9a6b0ba6d040b3c918/is9/시트1';
+  
+  fetch(url)
+    .then((response) => response.json())
+    .then(json => {
+      if (json.시트1 && json.시트1.length > 0) {
+        // console.log(json.시트1);
+        const result = searchKeyword(json.시트1, keyword);
+        // console.log(result);
+        if (result) {
+          displayResult(result);
+          console.log(result);
+        } else {
+          displayError("워크 아이디를 정확하게 입력해주세요");
+        }
+      } else {
+        displayError("데이터가 없거나 형식이 다릅니다.");
+      }
+    })
+    .catch(error => {
+      displayError("아이디를 입력해주세요");
+    });
+}
+
+function displayResult(result) {
+  const resultDiv = document.getElementById('searchResult');
+  resultDiv.innerHTML = `
+    <div class="result-card">
+      <h3>검색 결과</h3>
+      <table class="result-table">
+        <tr>
+          <th>마지막 저장 시간</th>
+          <td>${result.nextValue2}</td>
+        </tr>
+        <tr>
+          <th>워크 아이디</th>
+          <td>${result.value}</td>
+        </tr>
+        <tr>
+          <th>닉네임</th>
+          <td>${result.nextValue3}</td>
+        </tr>
+        <tr>
+          <th>레벨</th>
+          <td>${result.nextValue4}</td>
+        </tr>
+        <tr>
+          <th>포스스톤</th>
+          <td>${result.nextValue5}</td>
+        </tr>
+        <tr>
+          <th>남은티켓수</th>
+          <td>${result.nextValue6}</td>
+        </tr>
+      </table>
+    </div>
+  `;
+}
+
+function displayError(message) {
+  const resultDiv = document.getElementById('searchResult');
+  resultDiv.innerHTML = `<p class="error-message">${message}</p>`;
+}
+
+function searchKeyword(data, keyword) {
+  for (let i = 0; i < data.length; i++) {
+    const row = data[i];
+    for (let key in row) {
+      if (row[key] === keyword) {
+        // 키워드와 정확히 일치하는 셀을 찾았을 때
+        const columnIndex = Object.keys(row).indexOf(key);
+        return {
+          value: row[key],
+          nextValue1: row[Object.keys(row)[columnIndex + 1]] || 'N/A',
+          nextValue2: row[Object.keys(row)[columnIndex + 2]] || 'N/A',
+          nextValue3: row[Object.keys(row)[columnIndex + 3]] || 'N/A',
+          nextValue4: row[Object.keys(row)[columnIndex + 4]] || 'N/A',
+          nextValue5: convertCharge(row[Object.keys(row)[columnIndex + 5]]) || 'N/A',
+          nextValue6: row[Object.keys(row)[columnIndex + 6]] || 'N/A'
+        };
+      }
+    }
+  }
+  return null; // 키워드를 찾지 못한 경우
+}
+
+function convertCharge(value) {
+  const chargeMatch = value.match(/id:(\d+),charges:(\d+)/);
+  if (chargeMatch) {
+    const idValue = parseInt(chargeMatch[1]);
+    const chargesValue = parseInt(chargeMatch[2]);
+
+    let tier;
+    if (idValue === 559165495) {
+      tier = '신화';
+    } else if (idValue === 559165494) {
+      tier = '고대';
+    } else if (idValue === 559165493) {
+      tier = '에픽';
+    } else {
+      tier = '일반'; // 기본값
+    }
+
+    return `${tier} ${chargesValue} 중첩`;
+  }
+  return 'N/A'; // 값이 없을 경우
+}

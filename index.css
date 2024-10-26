@@ -285,6 +285,48 @@ pre {
   margin-right: 3rem;
 }
 
+#searchBtn{
+  display: inline-block;
+  width: 5rem;
+  padding: 0.4rem;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+}
+
+.result-card {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+.result-card h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.result-table th, .result-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+.result-table th {
+  background-color: #e9ecef;
+  font-weight: bold;
+  width: 30%;
+}
+.error-message {
+  color: #dc3545;
+  font-weight: bold;
+}
+
 footer {
   position: fixed;
   left: 0;
