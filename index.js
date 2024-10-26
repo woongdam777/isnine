@@ -157,7 +157,7 @@ function maxAbilltyCount(){
     maxReAbillty.innerHTML = result + ' 번';
 }
 
-// 포스스톤 개수확인
+// 데이터 검색
 
 const searchBtn = document.getElementById('searchBtn');
 searchBtn.addEventListener('click', searchSheet);
@@ -175,7 +175,7 @@ function searchSheet() {
         // console.log(result);
         if (result) {
           displayResult(result);
-          console.log(result);
+          // console.log(result);
         } else {
           displayError("워크 아이디를 정확하게 입력해주세요");
         }
