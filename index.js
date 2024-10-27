@@ -235,7 +235,7 @@ function displayResult(result, updateTime) {
         </tr>
         <tr>
           <th>포스레벨</th>
-          <td>${result.FLevel}</td>
+          <td>${result['Force Level']}</td>
         </tr>
         <tr>
           <th>포스스톤</th>
