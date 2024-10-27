@@ -27,6 +27,7 @@
           <li data-section="section-one">링크</li>
           <li data-section="section-two">포스</li>
           <li data-section="section-three">정보</li>
+          <li data-section="section-four">검색</li>
         </ul>
       </nav>
     </div>
@@ -400,7 +401,23 @@ ex) 슬롯1:방어 관통 +2.0%
 6초지속 3~8% / 10초지속 5~10%
           </pre>
         </div>
-      </section>      
+      </section>    
+      <section class="section-four" style="display:none;">
+        <div class="input-container">
+          <div class="awakenDetail">
+            <p>1시간 단위로 업데이트[5분정도 소요]</p>
+            <p>포스스톤 랭킹 300위까지만 검색가능</p>
+          </div>
+          <div class="component-input">
+            <label for="inputAwaken">워크 아이디:</label>
+            <div>
+              <input type="text" id="inputSearch" placeholder="값 입력">
+              <div id="searchBtn">검색</div>
+            </div>
+          </div>
+          <div id="searchResult"></div>
+        </div>
+      </section>  
     </main>
   </div>
   <footer>

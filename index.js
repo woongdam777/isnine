@@ -157,3 +157,101 @@ function maxAbilltyCount(){
     maxReAbillty.innerHTML = result + ' 번';
 }
 
+// 데이터 검색
+
+const SHEET_ID = '1-3DK85MfB-h1aq2FfAtnvJ2qoIYIj3MSwpkGwHCGJec';
+const SHEET_URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/export?format=csv`;
+
+const searchBtn = document.getElementById('searchBtn');
+searchBtn.addEventListener('click', searchSheet);
+
+function searchSheet() {
+  let keyword = document.getElementById('inputSearch').value;
+
+  fetch(SHEET_URL)
+    .then(response => response.text())
+    .then(data => {
+      const rows = data.split('\n').map(row => row.split(','));
+      const headers = rows[0];
+      const jsonData = rows.slice(1).map(row => {
+        let obj = {};
+        headers.forEach((header, index) => {
+          obj[header] = row[index];
+        });
+        return obj;
+      });
+
+      // K1 셀의 값 확인
+      const updateInfo = rows[0][10]; // K1 셀
+
+      if (updateInfo && updateInfo.startsWith("UPDATE_FINISHED:")) {
+        // 업데이트가 완료된 경우
+        const updateTime = updateInfo.substring("UPDATE_FINISHED:".length).trim(); 
+        const formattedDate = formatDate(updateTime);
+
+        const result = searchKeyword(jsonData, keyword);
+        if (result) {
+          displayResult(result, formattedDate); 
+        } else {
+          displayError("워크 아이디를 정확하게 입력해주세요");
+        }
+      } else {
+        // 업데이트 중인 경우
+        displayError("현재 데이터 업데이트 중입니다. 잠시 후 다시 시도해 주세요.");
+      }
+    })
+    .catch(error => {
+      displayError("데이터를 가져오는 중 오류가 발생했습니다.");
+      console.error('Error:', error);
+    });
+}
+
+function formatDate(isoString) {
+  const date = new Date(isoString);
+  return date.toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', hour12: false });
+}
+
+function displayResult(result, updateTime) {
+  const resultDiv = document.getElementById('searchResult');
+  resultDiv.innerHTML = `
+    <div class="result-card">
+      <h3>검색 결과</h3>
+      <table class="result-table">
+        <tr>
+          <th>마지막 저장 시간</th>
+          <td>${result.Date}</td>
+        </tr>
+        <tr>
+          <th>워크 아이디</th>
+          <td>${result.Name}</td>
+        </tr>
+        <tr>
+          <th>닉네임</th>
+          <td>${result.Nickname}</td>
+        </tr>
+        <tr>
+          <th>레벨</th>
+          <td>Lv.${result.Level}</td>
+        </tr>
+        <tr>
+          <th>포스스톤</th>
+          <td>${result.Forcestone}</td>
+        </tr>
+        <tr>
+          <th>남은티켓수</th>
+          <td>${result['Ticket Count']} 개</td>
+        </tr>
+      </table>
+      <p class="last-update">마지막 업데이트: ${updateTime}</p>
+    </div>
+  `;
+}
+
+function displayError(message) {
+  const resultDiv = document.getElementById('searchResult');
+  resultDiv.innerHTML = `<p class="error-message">${message}</p>`;
+}
+
+function searchKeyword(data, keyword) {
+  return data.find(row => row.Name === keyword) || null;
+}
