@@ -234,6 +234,10 @@ function displayResult(result, updateTime) {
           <td>Lv.${result.Level}</td>
         </tr>
         <tr>
+          <th>포스레벨</th>
+          <td>${result.FLevel}</td>
+        </tr>
+        <tr>
           <th>포스스톤</th>
           <td>${result.Forcestone}</td>
         </tr>
