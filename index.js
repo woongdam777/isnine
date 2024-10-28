@@ -217,14 +217,8 @@ function displayResult(result, updateTime) {
     <div class="result-card">
       <h3>캐릭터 정보
         <div>
-          <svg onclick="captureAndCopy()" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" style="cursor: pointer; margin-left: 10px;">
-            <path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM20 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H20C21.1 23 22 22.1 22 21V7C22 5.9 21.1 5 20 5ZM20 21H8V7H20V21Z" fill="#ffffff"/>
-          </svg>
-          <svg onclick="captureAndDownload()" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer; margin-left: 10px;">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>  
+          <i class="fa-regular fa-copy" onclick="captureAndCopy()"></i>
+          <i class="fa-solid fa-download" onclick="captureAndDownload()"></i>
         </div>
       </h3>
       <table class="result-table">

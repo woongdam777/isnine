@@ -329,10 +329,11 @@ pre {
   top: 1;
   right: 0;
   padding: 10px;
+  font-size: 1.5rem;
 }
-.result-card h3>div{
-  padding-top: 15px;
-  margin: 1px;
+.result-card h3 i{
+  padding: 5px;
+  cursor: pointer;
 }
 .result-table {
   width: 100%;
