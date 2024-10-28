@@ -110,7 +110,7 @@ header h1 {
 
 nav ul {
   display: flex;
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 nav ul li {
@@ -369,6 +369,9 @@ footer {
   color: white;
   font-size: 1.4rem;
 }
+footer i{
+  color: #ff7b00;
+}
 
 @media (max-width: 1024px) {
   .header-content {
@@ -383,6 +386,10 @@ footer {
 
   nav ul {
     width: 100%;
+  }
+
+  nav ul li {
+    font-size: 1.2rem;
   }
 
   .component-input {
