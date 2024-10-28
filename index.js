@@ -216,9 +216,16 @@ function displayResult(result, updateTime) {
   resultDiv.innerHTML = `
     <div class="result-card">
       <h3>캐릭터 정보
-        <svg onclick="captureAndCopy()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" style="cursor: pointer; margin-left: 10px;">
-          <path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM20 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H20C21.1 23 22 22.1 22 21V7C22 5.9 21.1 5 20 5ZM20 21H8V7H20V21Z" fill="#ffffff"/>
-        </svg>
+        <div>
+          <svg onclick="captureAndCopy()" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" style="cursor: pointer; margin-left: 10px;">
+            <path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM20 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H20C21.1 23 22 22.1 22 21V7C22 5.9 21.1 5 20 5ZM20 21H8V7H20V21Z" fill="#ffffff"/>
+          </svg>
+          <svg onclick="captureAndDownload()" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="cursor: pointer; margin-left: 10px;">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>  
+        </div>
       </h3>
       <table class="result-table">
         <tr>
@@ -269,10 +276,20 @@ function captureAndCopy() {
     canvas.toBlob(blob => {
       const item = new ClipboardItem({ 'image/png': blob });
       navigator.clipboard.write([item]).then(() => {
-        // alert('클립보드에 이미지가 저장되었습니다.');
+        alert('복사완료');
       }).catch(err => {
-        console.error('클립보드 저장 실패:', err);
+        console.error('복사실패 다운권장:', err);
       });
     });
+  });
+}
+
+function captureAndDownload() {
+  const element = document.getElementById('searchResult');
+  html2canvas(element).then(canvas => {
+    const link = document.createElement('a');
+    link.download = 'character_info.png';
+    link.href = canvas.toDataURL();
+    link.click();
   });
 }
