@@ -215,7 +215,11 @@ function displayResult(result, updateTime) {
   const resultDiv = document.getElementById('searchResult');
   resultDiv.innerHTML = `
     <div class="result-card">
-      <h3>검색 결과</h3>
+      <h3>캐릭터 정보
+        <svg onclick="captureAndCopy()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" style="cursor: pointer; margin-left: 10px;">
+          <path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM20 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H20C21.1 23 22 22.1 22 21V7C22 5.9 21.1 5 20 5ZM20 21H8V7H20V21Z" fill="#ffffff"/>
+        </svg>
+      </h3>
       <table class="result-table">
         <tr>
           <th>마지막 저장 시간</th>
@@ -247,8 +251,7 @@ function displayResult(result, updateTime) {
         </tr>
       </table>
       <p class="last-update">마지막 업데이트: ${updateTime}</p>
-    </div>
-  `;
+    </div>`;
 }
 
 function displayError(message) {
@@ -258,4 +261,18 @@ function displayError(message) {
 
 function searchKeyword(data, keyword) {
   return data.find(row => row.Name === keyword) || null;
+}
+
+function captureAndCopy() {
+  const element = document.getElementById('searchResult');
+  html2canvas(element).then(canvas => {
+    canvas.toBlob(blob => {
+      const item = new ClipboardItem({ 'image/png': blob });
+      navigator.clipboard.write([item]).then(() => {
+        // alert('클립보드에 이미지가 저장되었습니다.');
+      }).catch(err => {
+        console.error('클립보드 저장 실패:', err);
+      });
+    });
+  });
 }

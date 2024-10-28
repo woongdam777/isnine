@@ -304,37 +304,53 @@ pre {
 }
 
 .result-card {
-  background-color: #f8f9fa;
+  background-color: #4b4b4b; 
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  max-width: 400px;
+  margin: auto;
   padding: 20px;
-  margin-top: 20px;
+  color: white; 
 }
 .result-card h3 {
-  color: #333;
-  margin-bottom: 15px;
+  background-color: #666;
+  color: white;
+  padding: 10px;
+  margin: -20px -20px 20px -20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.result-card h3>svg{
+  position: absolute;
+  top: 1;
+  right: 0;
+  padding-right: 5px;
 }
 .result-table {
   width: 100%;
   border-collapse: collapse;
+  font-size: 1.2rem;
 }
 .result-table th, .result-table td {
   padding: 10px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
+  text-align: center; /* Center align table text */
+  border: 1px solid #888; /* Add border to table */
 }
 .result-table th {
-  background-color: #e9ecef;
-  font-weight: bold;
-  width: 30%;
+  background-color: #666; /* Slightly lighter for contrast */
 }
-.last-update{
-  margin-top: 2rem;
-  text-align: right;
+.result-table tr:nth-child(even) {
+  background-color: #5a5a5a; /* Alternate row color */
 }
-.error-message {
-  color: #dc3545;
-  font-weight: bold;
+.last-update {
+  text-align: center; /* Center align update text */
+  padding-top: 10px;
+  font-size: 0.9em;
+  color: #ccc; /* Lighter for subtle contrast */
 }
 
 footer {
