@@ -182,7 +182,7 @@ function searchSheet() {
       });
 
       // K1 셀의 값 확인
-      const updateInfo = rows[0][10]; // K1 셀
+      const updateInfo = rows[0][15]; // P1 셀
 
       if (updateInfo && updateInfo.startsWith("UPDATE_FINISHED:")) {
         // 업데이트가 완료된 경우
@@ -221,11 +221,8 @@ function displayResult(result, updateTime) {
           <i class="fa-solid fa-download" onclick="captureAndDownload()"></i>
         </div>
       </h3>
+      <p class="last-save">마지막 저장 시간: ${result.Date}</p>
       <table class="result-table">
-        <tr>
-          <th>마지막 저장 시간</th>
-          <td>${result.Date}</td>
-        </tr>
         <tr>
           <th>워크 아이디</th>
           <td>${result.Name}</td>
@@ -235,12 +232,8 @@ function displayResult(result, updateTime) {
           <td>${result.Nickname}</td>
         </tr>
         <tr>
-          <th>레벨</th>
-          <td>Lv.${result.Level}</td>
-        </tr>
-        <tr>
-          <th>포스레벨</th>
-          <td>${result['Force Level']}</td>
+          <th>【레벨】 포스</th>
+          <td>【Lv.${result.Level}】 ${result['Force Level']}</td>
         </tr>
         <tr>
           <th>포스스톤</th>
@@ -249,6 +242,10 @@ function displayResult(result, updateTime) {
         <tr>
           <th>남은티켓수</th>
           <td>${result['Ticket Count']} 개</td>
+        </tr>
+        <tr>
+          <th>수련장점수</th>
+          <td>${result['Train Score']} 점</td>
         </tr>
       </table>
       <p class="last-update">마지막 업데이트: ${updateTime}</p>

@@ -351,6 +351,13 @@ pre {
 .result-table tr:nth-child(even) {
   background-color: #5a5a5a; /* Alternate row color */
 }
+.last-save{
+  text-align: start; /* Center align update text */
+  font-size: 0.9em;
+  color: #ccc; /* Lighter for subtle contrast */  
+  margin-top: -12px;
+  padding: 0 0 3px 3px;
+}
 .last-update {
   text-align: center; /* Center align update text */
   padding-top: 10px;
