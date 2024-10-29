@@ -240,6 +240,10 @@ function displayResult(result, updateTime) {
           <td>【Lv.${result.Level}】 ${result['Force Level']}</td>
         </tr>
         <tr>
+          <th>각성 레벨</th>
+          <td>${result['Hell Level']}</td>
+        </tr>
+        <tr>
           <th>포스스톤</th>
           <td>${result.Forcestone}</td>
         </tr>
