@@ -232,6 +232,10 @@ function displayResult(result, updateTime) {
           <td>${result.Nickname}</td>
         </tr>
         <tr>
+          <th>클래스</th>
+          <td>${result.Job}</td>
+        </tr>
+        <tr>
           <th>【레벨】 포스</th>
           <td>【Lv.${result.Level}】 ${result['Force Level']}</td>
         </tr>
